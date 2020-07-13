@@ -1,0 +1,37 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.0.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'com.ideaas.botivery'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.security:spring-security-oauth2-resource-server'
+	implementation 'org.springframework.security:spring-security-oauth2-jose'
+	implementation 'org.springframework.security:spring-security-config'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	runtimeOnly 'com.h2database:h2'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	compile  'com.twilio.sdk:twilio:7.+'
+	compile group: 'org.json', name: 'json', version: '20200518'
+	compile 'com.google.api-client:google-api-client:1.30.6'
+	implementation ('com.google.oauth-client:google-oauth-client-jetty:1.30.6'){
+		exclude group: 'org.mortbay.jetty' , module: 'servlet-api'
+	}
+	compile 'com.google.apis:google-api-services-sheets:v4-rev581-1.25.0'
+}
+
+test {
+	useJUnitPlatform()
+}

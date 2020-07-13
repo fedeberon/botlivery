@@ -1,0 +1,8 @@
+auth0:
+  audience: 5edd741bb753e000150a78e4
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://botlivery.auth0.com/api/v2/
